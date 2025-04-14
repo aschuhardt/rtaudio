@@ -1893,6 +1893,10 @@ bool RtApiCore :: probeDeviceOpen( unsigned int deviceId, StreamMode mode, unsig
     }
   }
 
+  if (sampleRate == 0) {
+    sampleRate = 48000; // I just need this to work for the thing I'm doing
+  }
+
   stream_.sampleRate = sampleRate;
   stream_.deviceId[mode] = deviceId;
   stream_.state = STREAM_STOPPED;
